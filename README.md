@@ -1,23 +1,73 @@
-# GameReviewRating
-* Deploying a  Flask Application on heroku
-* heroku login
-* start by cloning the application.
-* heroku create your-first-heroku-app --buildpack heroku/python
-* Adding a Procfile
-* In order for us to successfully deploy any application to Heroku, we must add a Procfile to that application.
-* Before we can add a Procfile, we need to first install a web server called Gunicorn. Run the following command within the application folder.
- * pip install gunicorn
-* Update the requirements file by running
-*  pip freeze > requirements.txt
-* Create a new file with Procfile as the name and do not add any extension. Add this line below
- * web: gunicorn app:app
-* Stage the files for a commit and commit them
- * git add .
- * git commit -m "First commit for heroku"
-* Push the changes from your local master branch to heroku’s master branch.
- * git push heroku master
-* Now fire up your browser and got to: ( remember to replace your-first-heroku-app with the name of the app you created.)
-* https://your-first-heroku-app.herokuapp.com
+# GameReviewPredictor
+#### Prequisites
 
+- Python
+- pip
+- Heroku CLI
+- Git
 
+#### Deploying Flask App on Heroku
 
+* Create a virtual environment with pipenv and install Flask and Gunicorn .
+
+  ```
+  $ pipenv install flask gunicorn 
+  ```
+
+* Create a "Procfile" and write the following code.
+
+  ```
+  $ touch Procfile 
+  ```
+
+  ```
+  web: gunicorn app:app
+  ```
+
+* Create "runtime.txt" and write the following code.
+
+  ```
+  $ touch runtime.txt 
+  ```
+
+  ```
+  python-3.8.3
+  ```
+
+* Update the requirements file by running :
+
+  ```
+  $ pip freeze > requirements.txt
+  ```
+
+ *  Initialize an empty repository, add the files in the repository and commit all the changes.
+
+   ```
+   $ git init 
+   $ git add .
+   $ git commit -m "My First Web Application"
+   ```
+
+* Login to heroku CLI using :
+
+  ```
+  heroku login
+  ```
+
+ * Now, Create a unique name for your Web app.
+
+   ```
+   $ heroku create your-first-heroku-app --buildpack heroku/python
+   For example: 
+   $ heroku create gamereviewpredictor --buildpack heroku/python
+   ```
+
+* Push the code from your local master branch to heroku’s master branch.
+
+  ```
+  $ git push heroku master
+  ```
+
+ * Now fire up your browser and got to:
+
+   https://gamereviewpredictor.herokuapp.com/
