@@ -11,8 +11,8 @@ import pickle
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
-app.config['SECRET_KEY'] = '10ec2857c5dfee847c6f84a6af7c2058'
-rating = '67'
+app.config['SECRET_KEY'] = 'fa391e2036d64f1c901a3898bf714774'
+# rating = '67'
 
 
 @app.route('/', methods=['POST', 'GET'])
