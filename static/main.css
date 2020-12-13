@@ -28,6 +28,8 @@ body {
   padding: 0;
   color: #fff;
   text-align: center;
+  font-size: 14px;
+  color: #03e9f4;
 }
 
 .login-box .user-box {
@@ -70,6 +72,7 @@ top: -30px;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 16px;
+  font-weight: 900;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
@@ -181,8 +184,34 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #0e1722 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+element.style {
+}
 .alert-success {
+    text-align: center;
     color: #03e9f4;
     background-color: #0e1722;
     border-color: #03e9f4;
+    font-size: 60px;
+}
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.alert {
+    margin-left: 270px;
+    height: 125px;
+    width: 170px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-success {
+    text-align: center;
+    color: #03e9f4;
+    background-color: #0e1722;
+    border-color: #03e9f4;
+    font-size: 60px;
 }
