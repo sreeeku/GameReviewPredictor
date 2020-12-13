@@ -5,6 +5,7 @@ from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 import nltk
 nltk.download('wordnet')
+nltk.download('punkt')
 import re
 import numpy as np
 import pickle
