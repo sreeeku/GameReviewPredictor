@@ -1,24 +1,23 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from forms import RatingForm
+from forms import ReviewPredictorForm
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 import nltk
 nltk.download('wordnet')
 nltk.download('punkt')
+import pickle
 import re
 import numpy as np
-import pickle
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
 app.config['SECRET_KEY'] = 'fa391e2036d64f1c901a3898bf714774'
-rating = '67'
-
+rating = '1'
 
 @app.route('/', methods=['POST', 'GET'])
 def home():
-    form = RatingForm()
+    form = ReviewPredictorForm()
     if form.validate_on_submit():
         test_str_copy = form.review.data
         test_str = form.review.data
@@ -54,16 +53,13 @@ def home():
         ridge_regression_model_pickled = pickle.load(model)
         prep_test_vector = test_vectorizer.fit_transform([test_str])
         prediction = round(ridge_regression_model_pickled.predict(prep_test_vector)[0], 1)
-        flash(f'YOUR REVIEW : {test_str_copy}', 'success')
-        flash(f'MY MODEL RATING : {prediction}', 'success')
+        flash(f'{prediction}', 'success')
         return redirect(url_for('predict'))
-    return render_template('PredictReviewRating.html', form=form)
-
+    return render_template('ReviewPredictor.html', form=form)
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
-    return render_template('Rating.html', title='Rating', posts=rating)
-
+    return render_template('PredictedRating.html', title='Rating', posts=rating)
 
 if __name__ == '__main__':
     app.run(debug=True)
