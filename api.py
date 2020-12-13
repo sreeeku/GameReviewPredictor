@@ -1,10 +1,9 @@
-import nltk
 from flask import Flask, render_template, url_for, flash, redirect
 from forms import RatingForm
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
-
+import nltk
 nltk.download('wordnet')
 import re
 import numpy as np
