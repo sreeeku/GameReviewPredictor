@@ -68,6 +68,6 @@
   $ git push heroku master
   ```
 
- * Now fire up your browser and got to:
+ * Now got to the web application using below link:
 
    https://gamereviewpredictor.herokuapp.com/
